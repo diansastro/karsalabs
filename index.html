@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KarsaLabs — IT Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════════════════ -->
+  <nav id="navbar">
+    <a href="#home" onclick="event.preventDefault();goTo('home')" class="nav-logo" aria-label="KarsaLabs">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 36" height="36" aria-hidden="true">
+        <defs>
+          <linearGradient id="lg-nav" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#4f6ef7"/>
+            <stop offset="55%"  stop-color="#7c3aed"/>
+            <stop offset="100%" stop-color="#06b6d4"/>
+          </linearGradient>
+        </defs>
+        <!-- Icon mark -->
+        <polygon points="13,3 23,10 13,17 3,10"  fill="url(#lg-nav)"/>
+        <polygon points="13,13 23,20 13,27 3,20" fill="url(#lg-nav)" opacity="0.4"/>
+        <!-- Wordmark: single text, two weights -->
+        <text font-family="Outfit,sans-serif" font-size="20" letter-spacing="-0.3" fill="url(#lg-nav)">
+          <tspan x="30" y="24" font-weight="800">Karsa</tspan><tspan font-weight="300">Labs</tspan>
+        </text>
+      </svg>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#services"     onclick="event.preventDefault();goTo('services')"     data-i18n="nav.services">Layanan</a></li>
+      <li><a href="#how"          onclick="event.preventDefault();goTo('how')"           data-i18n="nav.process">Proses</a></li>
+      <li><a href="#tech"         onclick="event.preventDefault();goTo('tech')"          data-i18n="nav.tech">Teknologi</a></li>
+      <li><a href="#portfolio"    onclick="event.preventDefault();goTo('portfolio')"     data-i18n="nav.portfolio">Portfolio</a></li>
+      <li><a href="#testimonials" onclick="event.preventDefault();goTo('testimonials')"  data-i18n="nav.testimonials">Testimoni</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="lang-toggle" onclick="toggleLang()" title="Switch language">
+        <span class="lang-opt" id="langID">ID</span>
+        <span class="lang-sep"></span>
+        <span class="lang-opt" id="langEN">EN</span>
+      </div>
+      <button class="nav-cta" onclick="goTo('contact')" data-i18n="nav.cta">Konsultasi Gratis</button>
+    </div>
+
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services"     onclick="event.preventDefault();toggleMenu();goTo('services')"     data-i18n="nav.services">Layanan</a>
+    <a href="#how"          onclick="event.preventDefault();toggleMenu();goTo('how')"           data-i18n="nav.process">Proses</a>
+    <a href="#tech"         onclick="event.preventDefault();toggleMenu();goTo('tech')"          data-i18n="nav.tech">Teknologi</a>
+    <a href="#portfolio"    onclick="event.preventDefault();toggleMenu();goTo('portfolio')"     data-i18n="nav.portfolio">Portfolio</a>
+    <a href="#testimonials" onclick="event.preventDefault();toggleMenu();goTo('testimonials')"  data-i18n="nav.testimonials">Testimoni</a>
+    <a href="#contact"      onclick="event.preventDefault();toggleMenu();goTo('contact')"       data-i18n="nav.cta">Konsultasi Gratis</a>
+    <div class="mobile-lang-row">
+      <button id="mobileLangID" onclick="applyTranslations('id')">🇮🇩 Indonesia</button>
+      <button id="mobileLangEN" onclick="applyTranslations('en')">🇬🇧 English</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span data-i18n="hero.badge">IT Solution Terpercaya</span>
+      </div>
+
+      <h1>
+        <span data-i18n="hero.title">Transformasi Digital</span><br>
+        <span class="gradient-text" data-i18n="hero.titleAccent">Bisnis Anda</span>
+      </h1>
+
+      <p data-i18n="hero.desc">
+        Kami membangun aplikasi web &amp; mobile berkualitas tinggi, serta
+        menyediakan konsultasi IT strategis untuk mendorong pertumbuhan
+        bisnis Anda ke level berikutnya.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="goTo('services')" data-i18n="hero.btnServices">Lihat Layanan</button>
+        <button class="btn-ghost" onclick="goTo('portfolio')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          <span data-i18n="hero.btnPortfolio">Lihat Portfolio</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Floating cards -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="fcard fcard-main">
+        <div class="fcard-icon-row">
+          <div class="fcard-icon blue">🌐</div>
+          <div>
+            <div class="fcard-label" data-i18n="hero.card.activeProject">Proyek Aktif</div>
+            <div class="fcard-title">Web Development</div>
+          </div>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:78%"></div></div>
+        <div class="progress-label" data-i18n="hero.card.progress">78% selesai</div>
+      </div>
+
+      <div class="fcard fcard-stat1">
+        <div class="fcard-label" data-i18n="hero.card.happyClients">Klien Puas</div>
+        <div class="fcard-big">200+</div>
+        <div class="fcard-sub" data-i18n="hero.card.successProjects">Proyek berhasil</div>
+      </div>
+
+      <div class="fcard fcard-stat2">
+        <div class="fcard-icon-row">
+          <div class="fcard-icon purple">📱</div>
+          <div>
+            <div class="fcard-label">Mobile Apps</div>
+            <div class="fcard-title gradient-text">iOS &amp; Android</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       STATS
+  ══════════════════════════════════════════════════════ -->
+  <div class="stats-strip">
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <span class="stat-num">200+</span>
+        <span class="stat-lbl" data-i18n="stats.clients">Klien Puas</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-cell">
+        <span class="stat-num">350+</span>
+        <span class="stat-lbl" data-i18n="stats.projects">Proyek Selesai</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-cell">
+        <span class="stat-num">8+</span>
+        <span class="stat-lbl" data-i18n="stats.years">Tahun Pengalaman</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-cell">
+        <span class="stat-num">99%</span>
+        <span class="stat-lbl" data-i18n="stats.satisfaction">Kepuasan Klien</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       SERVICES
+  ══════════════════════════════════════════════════════ -->
+  <section id="services">
+    <div class="sec-header">
+      <span class="sec-tag" data-i18n="services.tag">Layanan Kami</span>
+      <h2 class="sec-title" data-i18n="services.title">Solusi Digital Lengkap</h2>
+      <p class="sec-sub" data-i18n="services.subtitle">Dari pengembangan aplikasi hingga konsultasi strategis, kami siap menjadi mitra teknologi andalan Anda.</p>
+    </div>
+
+    <div class="cards-grid">
+
+      <article class="svc-card">
+        <div class="svc-ico svc-ico--web">🌐</div>
+        <h3>Web Development</h3>
+        <p data-i18n="services.web.desc">Kami membangun aplikasi web modern yang responsif, cepat, dan skalabel menggunakan teknologi terkini untuk kebutuhan bisnis Anda.</p>
+        <ul class="feat-list">
+          <li><span class="dot-bullet"></span><span data-i18n="services.web.f1">Landing Page &amp; Company Profile</span></li>
+          <li><span class="dot-bullet"></span><span data-i18n="services.web.f2">E-commerce &amp; Marketplace</span></li>
+          <li><span class="dot-bullet"></span><span data-i18n="services.web.f3">SaaS &amp; Web Application</span></li>
+          <li><span class="dot-bullet"></span><span data-i18n="services.web.f4">API Development &amp; Integration</span></li>
+        </ul>
+        <div class="svc-cta">
+          <span data-i18n="services.learnMore">Pelajari Lebih Lanjut</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </article>
+
+      <article class="svc-card">
+        <div class="svc-ico svc-ico--mobile">📱</div>
+        <h3>Mobile Development</h3>
+        <p data-i18n="services.mobile.desc">Kami membuat aplikasi mobile iOS dan Android yang intuitif, berperforma tinggi, dan memberikan pengalaman pengguna yang luar biasa.</p>
+        <ul class="feat-list">
+          <li><span class="dot-bullet"></span><span data-i18n="services.mobile.f1">Native iOS &amp; Android App</span></li>
+          <li><span class="dot-bullet"></span><span data-i18n="services.mobile.f2">Cross-platform (React Native / Flutter)</span></li>
+          <li><span class="dot-bullet"></span><span data-i18n="services.mobile.f3">UI/UX Design &amp; Prototyping</span></li>
+          <li><span class="dot-bullet"></span><span data-i18n="services.mobile.f4">App Store &amp; Play Store Publishing</span></li>
+        </ul>
+        <div class="svc-cta">
+          <span data-i18n="services.learnMore">Pelajari Lebih Lanjut</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </article>
+
+      <article class="svc-card">
+        <div class="svc-ico svc-ico--consult">💡</div>
+        <h3>IT Consultant</h3>
+        <p data-i18n="services.consult.desc">Tim konsultan berpengalaman kami membantu Anda merancang strategi teknologi yang tepat untuk mencapai tujuan bisnis secara efisien.</p>
+        <ul class="feat-list">
+          <li><span class="dot-bullet"></span><span data-i18n="services.consult.f1">IT Strategy &amp; Roadmap</span></li>
+          <li><span class="dot-bullet"></span><span data-i18n="services.consult.f2">Digital Transformation</span></li>
+          <li><span class="dot-bullet"></span><span data-i18n="services.consult.f3">System Architecture Design</span></li>
+          <li><span class="dot-bullet"></span><span data-i18n="services.consult.f4">Security Audit &amp; Compliance</span></li>
+        </ul>
+        <div class="svc-cta">
+          <span data-i18n="services.learnMore">Pelajari Lebih Lanjut</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       HOW IT WORKS
+  ══════════════════════════════════════════════════════ -->
+  <section id="how">
+    <div class="sec-header">
+      <span class="sec-tag" data-i18n="how.tag">Proses Kerja</span>
+      <h2 class="sec-title" data-i18n="how.title">Bagaimana Kami Bekerja?</h2>
+      <p class="sec-sub" data-i18n="how.subtitle">Proses transparan dan terstruktur untuk memastikan proyek Anda selesai tepat waktu dan sesuai harapan.</p>
+    </div>
+
+    <div class="steps-wrap">
+      <div class="step-row">
+        <div class="step-aside"><div class="step-circle">01</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <span class="step-lbl" data-i18n="how.s1.label">Tahap Pertama</span>
+          <h4 data-i18n="how.s1.title">Konsultasi &amp; Discovery</h4>
+          <p data-i18n="how.s1.desc">Kami mendengar kebutuhan bisnis Anda secara mendalam dan mengidentifikasi solusi terbaik yang sesuai dengan tujuan dan anggaran Anda.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-aside"><div class="step-circle">02</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <span class="step-lbl" data-i18n="how.s2.label">Tahap Kedua</span>
+          <h4 data-i18n="how.s2.title">Perencanaan &amp; Desain</h4>
+          <p data-i18n="how.s2.desc">Tim kami merancang arsitektur sistem dan prototype UI/UX yang detail agar semua pihak memiliki visi yang sama sebelum pengembangan dimulai.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-aside"><div class="step-circle">03</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <span class="step-lbl" data-i18n="how.s3.label">Tahap Ketiga</span>
+          <h4 data-i18n="how.s3.title">Pengembangan Agile</h4>
+          <p data-i18n="how.s3.desc">Pengembangan dilakukan secara iteratif dengan sprint dua mingguan agar Anda selalu mendapat update progres secara transparan dan real-time.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-aside"><div class="step-circle">04</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <span class="step-lbl" data-i18n="how.s4.label">Tahap Keempat</span>
+          <h4 data-i18n="how.s4.title">Testing &amp; QA</h4>
+          <p data-i18n="how.s4.desc">Setiap fitur diuji secara menyeluruh — fungsional, performa, dan keamanan — untuk memastikan kualitas produk sebelum diluncurkan ke publik.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-aside"><div class="step-circle">05</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <span class="step-lbl" data-i18n="how.s5.label">Tahap Kelima</span>
+          <h4 data-i18n="how.s5.title">Deploy &amp; Launch</h4>
+          <p data-i18n="how.s5.desc">Produk diluncurkan ke production dengan zero-downtime deployment, monitoring real-time, dan dokumentasi lengkap untuk tim Anda.</p>
+        </div>
+      </div>
+      <div class="step-row step-row--last">
+        <div class="step-aside"><div class="step-circle">06</div></div>
+        <div class="step-content">
+          <span class="step-lbl" data-i18n="how.s6.label">Tahap Keenam</span>
+          <h4 data-i18n="how.s6.title">Maintenance &amp; Support</h4>
+          <p data-i18n="how.s6.desc">Dukungan purna jual 24/7 untuk memastikan aplikasi Anda selalu berjalan optimal, aman, dan siap berkembang sesuai kebutuhan bisnis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       TECH STACK
+  ══════════════════════════════════════════════════════ -->
+  <section id="tech">
+    <div class="sec-header">
+      <span class="sec-tag" data-i18n="tech.tag">Teknologi</span>
+      <h2 class="sec-title" data-i18n="tech.title">Tech Stack Modern</h2>
+      <p class="sec-sub" data-i18n="tech.subtitle">Kami menggunakan teknologi terdepan yang telah terbukti menghadirkan solusi berkualitas enterprise.</p>
+    </div>
+
+    <div class="tech-wrap">
+      <div class="tech-tabs" role="tablist">
+        <button class="ttab active" onclick="switchTab(this,'frontend')" data-i18n="tech.tab.frontend">Frontend</button>
+        <button class="ttab"        onclick="switchTab(this,'backend')"  data-i18n="tech.tab.backend">Backend</button>
+        <button class="ttab"        onclick="switchTab(this,'mobile')"   data-i18n="tech.tab.mobile">Mobile</button>
+        <button class="ttab"        onclick="switchTab(this,'cloud')"    data-i18n="tech.tab.cloud">Cloud &amp; DevOps</button>
+      </div>
+      <div class="tech-grid" id="techGrid"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       PORTFOLIO
+  ══════════════════════════════════════════════════════ -->
+  <section id="portfolio">
+    <div class="sec-header">
+      <span class="sec-tag" data-i18n="portfolio.tag">Portfolio</span>
+      <h2 class="sec-title" data-i18n="portfolio.title">Karya Terbaik Kami</h2>
+      <p class="sec-sub" data-i18n="portfolio.subtitle">Setiap proyek adalah bukti komitmen kami terhadap kualitas dan inovasi tanpa kompromi.</p>
+    </div>
+
+    <!-- Filter buttons -->
+    <div class="port-filters">
+      <button class="port-filter active" onclick="filterPortfolio(this,'all')"  data-i18n="portfolio.filter.all">Semua</button>
+      <button class="port-filter"        onclick="filterPortfolio(this,'web')"  data-i18n="portfolio.filter.web">Web</button>
+      <button class="port-filter"        onclick="filterPortfolio(this,'mobile')" data-i18n="portfolio.filter.mobile">Mobile</button>
+    </div>
+
+    <div class="portfolio-grid" id="portfolioGrid">
+
+      <!-- WEB 1 -->
+      <div class="port-card" data-type="web">
+        <div class="port-thumb port-thumb--1">
+          🛒
+          <span class="port-type-badge port-type-badge--web">Web</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">E-commerce</span>
+          <h3>TokoBesarku Marketplace</h3>
+          <p data-i18n="portfolio.p1.desc">Platform marketplace multi-vendor dengan fitur pembayaran terintegrasi, real-time chat, dan analytics dashboard.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">React</span>
+            <span class="port-tech-tag">Node.js</span>
+            <span class="port-tech-tag">MongoDB</span>
+          </div>
+          <div class="port-meta">
+            <span>⚙️ React + Node.js</span>
+            <span data-i18n="portfolio.p1.users">👥 50K+ pengguna</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOBILE 1 -->
+      <div class="port-card" data-type="mobile">
+        <div class="port-thumb port-thumb--2">
+          🏥
+          <span class="port-type-badge port-type-badge--mobile">Mobile</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">Healthcare</span>
+          <h3>MediConnect App</h3>
+          <p data-i18n="portfolio.p2.desc">Aplikasi mobile telemedicine untuk konsultasi dokter online, manajemen rekam medis, dan pengingat obat.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">Flutter</span>
+            <span class="port-tech-tag">Firebase</span>
+            <span class="port-tech-tag">Dart</span>
+          </div>
+          <div class="port-meta">
+            <span>📱 Flutter</span>
+            <span>⭐ 4.8 App Store</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEB 2 -->
+      <div class="port-card" data-type="web">
+        <div class="port-thumb port-thumb--3">
+          📊
+          <span class="port-type-badge port-type-badge--web">Web</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">FinTech</span>
+          <h3>FinSight Dashboard</h3>
+          <p data-i18n="portfolio.p3.desc">Platform analitik keuangan real-time dengan visualisasi data interaktif dan laporan otomatis untuk perusahaan.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">Vue.js</span>
+            <span class="port-tech-tag">Python</span>
+            <span class="port-tech-tag">PostgreSQL</span>
+          </div>
+          <div class="port-meta">
+            <span>⚙️ Vue + Python</span>
+            <span data-i18n="portfolio.p3.clients">🏢 30+ perusahaan</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOBILE 2 -->
+      <div class="port-card" data-type="mobile">
+        <div class="port-thumb port-thumb--4">
+          🎓
+          <span class="port-type-badge port-type-badge--mobile">Mobile</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">EdTech</span>
+          <h3>EduGrow Learning</h3>
+          <p data-i18n="portfolio.p4.desc">Aplikasi belajar online dengan fitur kelas live, kuis interaktif, sertifikasi, dan progress tracking lengkap.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">React Native</span>
+            <span class="port-tech-tag">GraphQL</span>
+            <span class="port-tech-tag">AWS</span>
+          </div>
+          <div class="port-meta">
+            <span>📱 React Native</span>
+            <span data-i18n="portfolio.p4.users">👥 100K+ pengguna</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEB 3 -->
+      <div class="port-card" data-type="web">
+        <div class="port-thumb port-thumb--5">
+          🏨
+          <span class="port-type-badge port-type-badge--web">Web</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">Travel</span>
+          <h3>StayEasy Booking</h3>
+          <p data-i18n="portfolio.p5.desc">Platform pemesanan hotel dan villa dengan sistem rekomendasi AI, ulasan pengguna, dan integrasi payment gateway.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">Next.js</span>
+            <span class="port-tech-tag">TypeScript</span>
+            <span class="port-tech-tag">Redis</span>
+          </div>
+          <div class="port-meta">
+            <span>⚙️ Next.js</span>
+            <span data-i18n="portfolio.p5.bookings">📅 20K+ booking/bulan</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOBILE 3 -->
+      <div class="port-card" data-type="mobile">
+        <div class="port-thumb port-thumb--6">
+          💰
+          <span class="port-type-badge port-type-badge--mobile">Mobile</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">FinTech</span>
+          <h3>WalletKu</h3>
+          <p data-i18n="portfolio.p6.desc">Aplikasi dompet digital dengan fitur transfer, split bill, investasi reksa dana, dan laporan keuangan personal otomatis.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">Kotlin</span>
+            <span class="port-tech-tag">Swift</span>
+            <span class="port-tech-tag">Kubernetes</span>
+          </div>
+          <div class="port-meta">
+            <span>📱 iOS &amp; Android</span>
+            <span data-i18n="portfolio.p6.users">💳 80K+ pengguna</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       TESTIMONIALS
+  ══════════════════════════════════════════════════════ -->
+  <section id="testimonials">
+    <div class="sec-header">
+      <span class="sec-tag" data-i18n="testi.tag">Testimoni</span>
+      <h2 class="sec-title" data-i18n="testi.title">Apa Kata Klien Kami</h2>
+      <p class="sec-sub" data-i18n="testi.subtitle">Kepercayaan klien adalah aset terbesar kami. Dengarkan cerita sukses mereka bersama KarsaLabs.</p>
+    </div>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <blockquote data-i18n="testi.t1.quote">"KarsaLabs mengubah cara kami berbisnis sepenuhnya. Aplikasi yang mereka bangun sangat responsif dan melampaui ekspektasi kami. Tim mereka profesional dan selalu siap membantu."</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(79,110,247,0.12)">👨‍💼</div>
+          <div>
+            <div class="testi-name">Budi Santoso</div>
+            <div class="testi-role" data-i18n="testi.t1.role">CEO, TokoBesarku</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <blockquote data-i18n="testi.t2.quote">"Konsultasi IT dari KarsaLabs memberikan kami roadmap yang sangat jelas. Dalam 6 bulan, efisiensi operasional kami meningkat 40%. Sangat direkomendasikan!"</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(124,58,237,0.12)">👩‍💻</div>
+          <div>
+            <div class="testi-name">Sari Dewi</div>
+            <div class="testi-role" data-i18n="testi.t2.role">CTO, HealthFirst ID</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <blockquote data-i18n="testi.t3.quote">"Mobile app yang dibuat KarsaLabs sudah didownload lebih dari 100K kali dalam 3 bulan pertama. Kualitasnya benar-benar setara aplikasi internasional."</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(6,182,212,0.12)">👨‍🚀</div>
+          <div>
+            <div class="testi-name">Andi Prasetyo</div>
+            <div class="testi-role" data-i18n="testi.t3.role">Founder, EduGrow</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="contact-wrap">
+
+      <!-- Left: info -->
+      <div class="contact-info">
+        <span class="sec-tag" data-i18n="contact.tag">Hubungi Kami</span>
+        <h2 data-i18n="contact.heading">Siap Memulai Proyek <span class="gradient-text" data-i18n="contact.headingAccent">Impian Anda?</span></h2>
+        <p data-i18n="contact.subtitle">Konsultasikan kebutuhan teknologi Anda bersama kami secara gratis. Tim ahli kami siap memberikan solusi terbaik untuk bisnis Anda.</p>
+
+        <div class="cinfo-list">
+          <div class="cinfo-item">
+            <div class="cinfo-ico">📍</div>
+            <div>
+              <div class="cinfo-lbl" data-i18n="contact.info.addressLabel">Alamat</div>
+              <div class="cinfo-val">Jakarta, Indonesia</div>
+            </div>
+          </div>
+          <div class="cinfo-item">
+            <div class="cinfo-ico">📞</div>
+            <div>
+              <div class="cinfo-lbl" data-i18n="contact.info.phoneLabel">Telepon</div>
+              <div class="cinfo-val">+62 812-3456-7890</div>
+            </div>
+          </div>
+          <div class="cinfo-item">
+            <div class="cinfo-ico">✉️</div>
+            <div>
+              <div class="cinfo-lbl">Email</div>
+              <div class="cinfo-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b9d0d7dfd6d4d8cad2d6ddd0d7def9ded4d8d0d597dad6d4">[email&#160;protected]</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="contact-form-wrap">
+        <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label data-i18n="contact.form.nameLabel">Nama</label>
+              <input type="text" id="f-name" class="form-input"
+                     data-i18n-placeholder="contact.form.name" placeholder="Nama Anda" required/>
+              <span class="form-err" id="err-name"></span>
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact.form.companyLabel">Perusahaan</label>
+              <input type="text" id="f-company" class="form-input"
+                     data-i18n-placeholder="contact.form.company" placeholder="Perusahaan"/>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="f-email" class="form-input"
+                     data-i18n-placeholder="contact.form.email" placeholder="Email Anda" required/>
+              <span class="form-err" id="err-email"></span>
+            </div>
+            <div class="form-group">
+              <label>WhatsApp</label>
+              <input type="tel" id="f-wa" class="form-input"
+                     data-i18n-placeholder="contact.form.whatsapp" placeholder="Nomor WhatsApp"/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="contact.form.serviceLabel">Layanan yang Dibutuhkan</label>
+            <select id="f-service" class="form-input form-select">
+              <option value="" data-i18n="contact.form.serviceDefault">Pilih layanan...</option>
+              <option value="web">Web Development</option>
+              <option value="mobile">Mobile Development</option>
+              <option value="consult">IT Consultant</option>
+              <option value="other" data-i18n="contact.form.serviceOther">Lainnya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="contact.form.messageLabel">Pesan</label>
+            <textarea id="f-message" class="form-input form-textarea" rows="5"
+                      data-i18n-placeholder="contact.form.message"
+                      placeholder="Ceritakan kebutuhan Anda..." required></textarea>
+            <span class="form-err" id="err-message"></span>
+          </div>
+
+          <!-- Submit button + states -->
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <span class="btn-label" data-i18n="contact.form.submit">Kirim &amp; Mulai Konsultasi</span>
+            <span class="btn-spinner" style="display:none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="spin"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </span>
+          </button>
+
+          <!-- Feedback messages -->
+          <div class="form-feedback form-feedback--success" id="successMsg" style="display:none">
+            <span>✅</span>
+            <span data-i18n="contact.form.successMsg">Pesan berhasil dikirim! Kami akan menghubungi Anda segera.</span>
+          </div>
+          <div class="form-feedback form-feedback--error" id="errorMsg" style="display:none">
+            <span>❌</span>
+            <span data-i18n="contact.form.errorMsg">Gagal mengirim pesan. Silakan coba lagi atau hubungi kami langsung.</span>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 36" height="34" aria-label="KarsaLabs">
+            <defs>
+              <linearGradient id="lg-footer" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%"   stop-color="#4f6ef7"/>
+                <stop offset="55%"  stop-color="#7c3aed"/>
+                <stop offset="100%" stop-color="#06b6d4"/>
+              </linearGradient>
+            </defs>
+            <polygon points="13,3 23,10 13,17 3,10"  fill="url(#lg-footer)"/>
+            <polygon points="13,13 23,20 13,27 3,20" fill="url(#lg-footer)" opacity="0.4"/>
+            <text font-family="Outfit,sans-serif" font-size="20" letter-spacing="-0.3" fill="url(#lg-footer)">
+              <tspan x="30" y="24" font-weight="800">Karsa</tspan><tspan font-weight="300">Labs</tspan>
+            </text>
+          </svg>
+        </div>
+        <p data-i18n="footer.desc">Mitra teknologi terpercaya untuk transformasi digital bisnis Anda. Kami membangun solusi masa depan hari ini.</p>
+        <div class="footer-socials">
+          <a class="social-ico" href="#" aria-label="Twitter">𝕏</a>
+          <a class="social-ico" href="#" aria-label="LinkedIn">in</a>
+          <a class="social-ico" href="#" aria-label="Facebook">f</a>
+          <a class="social-ico" href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5 data-i18n="footer.col.services">Layanan</h5>
+        <ul>
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Mobile Development</a></li>
+          <li><a href="#" data-i18n="footer.consulting">IT Consulting</a></li>
+          <li><a href="#">UI/UX Design</a></li>
+          <li><a href="#" data-i18n="footer.cloud">Cloud Services</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5 data-i18n="footer.col.company">Perusahaan</h5>
+        <ul>
+          <li><a href="#" data-i18n="footer.about">Tentang Kami</a></li>
+          <li><a href="#" data-i18n="footer.team">Tim Kami</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#" data-i18n="footer.career">Karir</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5 data-i18n="footer.col.contact">Kontak</h5>
+        <ul>
+          <li><a href="#">📍 Jakarta, Indonesia</a></li>
+          <li><a href="tel:+628123456789">📞 +62 812-3456-7890</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#1c75727a73717d6f77737875727b5c7b717d7570327f7371">✉️ <span class="__cf_email__" data-cfemail="620b0c040d0f0311090d060b0c0522050f030b0e4c010d0f">[email&#160;protected]</span></a></li>
+          <li><a href="#">💬 WhatsApp</a></li>
+        </ul>
+      </div>
+
+    </div><!-- /.footer-inner -->
+
+    <div class="footer-bottom">
+      <p data-i18n="footer.copy">© 2025 KarsaLabs IT Solutions. All rights reserved.</p>
+      <p data-i18n="footer.made">Dibuat dengan penuh semangat di Indonesia</p>
+    </div>
+
+  </footer>
+
+</body>
+</html>
