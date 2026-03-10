@@ -312,48 +312,36 @@ function filterPortfolio(btn, type) {
     }
   });
 }
-const techData = {
-  frontend: [
-    { e:'⚛️', n:'React'      }, { e:'💚', n:'Vue.js'     },
-    { e:'🔺', n:'Angular'    }, { e:'▲',  n:'Next.js'    },
-    { e:'🟦', n:'TypeScript' }, { e:'🎨', n:'Tailwind'   },
-    { e:'🖼️', n:'Figma'      }, { e:'⚡', n:'Vite'       },
-  ],
-  backend: [
-    { e:'🟢', n:'Node.js'  }, { e:'🐍', n:'Python'  },
-    { e:'🐘', n:'PHP'      }, { e:'☕', n:'Java'     },
-    { e:'🦀', n:'Go'       }, { e:'🐬', n:'MySQL'    },
-    { e:'🍃', n:'MongoDB'  }, { e:'🔴', n:'Redis'    },
-  ],
-  mobile: [
-    { e:'📱', n:'Flutter'     }, { e:'⚛️', n:'React Native' },
-    { e:'🍎', n:'Swift'       }, { e:'🤖', n:'Kotlin'       },
-    { e:'🔥', n:'Firebase'    }, { e:'🗺️', n:'Maps API'     },
-    { e:'💳', n:'Payment SDK' }, { e:'📊', n:'Analytics'    },
-  ],
-  cloud: [
-    { e:'☁️', n:'AWS'        }, { e:'🔵', n:'Azure'      },
-    { e:'🌩️', n:'GCP'        }, { e:'🐳', n:'Docker'     },
-    { e:'☸️', n:'Kubernetes' }, { e:'🔄', n:'CI/CD'      },
-    { e:'📡', n:'Nginx'      }, { e:'🔒', n:'SSL/TLS'    },
-  ],
-};
+/* ══════════════════════════════════════════════════════════
+   TECH STACK
+   ══════════════════════════════════════════════════════════ */
+const techStack = [
+  { e: '🐧', n: 'Ubuntu'       },
+  { e: '🌐', n: 'Nginx'        },
+  { e: '🐙', n: 'GitHub'       },
+  { e: '☕', n: 'Java'         },
+  { e: '🍃', n: 'Spring Boot'  },
+  { e: '🌿', n: 'Thymeleaf'   },
+  { e: '🤖', n: 'Kotlin'       },
+  { e: '🐘', n: 'PHP'          },
+  { e: '🐬', n: 'MySQL'        },
+  { e: '🔒', n: 'SSL / TLS'    },
+  { e: '💳', n: 'Google Pay'   },
+  { e: '▶️', n: 'YouTube API'  },
+  { e: '🗺️', n: 'Maps API'     },
+  { e: '🔥', n: 'Firebase'     },
+  { e: '🅱️', n: 'Bootstrap'    },
+];
 
-function renderTech(key) {
+function renderTech() {
   const grid = document.getElementById('techGrid');
   if (!grid) return;
-  grid.innerHTML = techData[key].map(t =>
+  grid.innerHTML = techStack.map(t =>
     `<div class="tech-item">
        <span class="tech-emoji">${t.e}</span>
        <div class="tech-name">${t.n}</div>
      </div>`
   ).join('');
-}
-
-function switchTab(btn, key) {
-  document.querySelectorAll('.ttab').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderTech(key);
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -454,6 +442,6 @@ async function handleSubmit(e) {
    INIT
    ══════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
-  renderTech('frontend');
+  renderTech();
   applyTranslations(currentLang);
 });

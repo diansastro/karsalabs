@@ -40,14 +40,14 @@
       <li><a href="#how"          onclick="event.preventDefault();goTo('how')"           data-i18n="nav.process">Proses</a></li>
       <li><a href="#tech"         onclick="event.preventDefault();goTo('tech')"          data-i18n="nav.tech">Teknologi</a></li>
       <li><a href="#portfolio"    onclick="event.preventDefault();goTo('portfolio')"     data-i18n="nav.portfolio">Portfolio</a></li>
-      <li><a href="#testimonials" onclick="event.preventDefault();goTo('testimonials')"  data-i18n="nav.testimonials">Testimoni</a></li>
+
     </ul>
 
     <div class="nav-right">
       <div class="lang-toggle" onclick="toggleLang()" title="Switch language">
-        <span class="lang-opt" id="langID">ID</span>
+        <span class="lang-opt" id="langID">🇮🇩</span>
         <span class="lang-sep"></span>
-        <span class="lang-opt" id="langEN">EN</span>
+        <span class="lang-opt" id="langEN">🇬🇧</span>
       </div>
       <button class="nav-cta" onclick="goTo('contact')" data-i18n="nav.cta">Konsultasi Gratis</button>
     </div>
@@ -63,7 +63,7 @@
     <a href="#how"          onclick="event.preventDefault();toggleMenu();goTo('how')"           data-i18n="nav.process">Proses</a>
     <a href="#tech"         onclick="event.preventDefault();toggleMenu();goTo('tech')"          data-i18n="nav.tech">Teknologi</a>
     <a href="#portfolio"    onclick="event.preventDefault();toggleMenu();goTo('portfolio')"     data-i18n="nav.portfolio">Portfolio</a>
-    <a href="#testimonials" onclick="event.preventDefault();toggleMenu();goTo('testimonials')"  data-i18n="nav.testimonials">Testimoni</a>
+
     <a href="#contact"      onclick="event.preventDefault();toggleMenu();goTo('contact')"       data-i18n="nav.cta">Konsultasi Gratis</a>
     <div class="mobile-lang-row">
       <button id="mobileLangID" onclick="applyTranslations('id')">🇮🇩 Indonesia</button>
@@ -138,29 +138,6 @@
   <!-- ══════════════════════════════════════════════════════
        STATS
   ══════════════════════════════════════════════════════ -->
-  <div class="stats-strip">
-    <div class="stats-grid">
-      <div class="stat-cell">
-        <span class="stat-num">200+</span>
-        <span class="stat-lbl" data-i18n="stats.clients">Klien Puas</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-cell">
-        <span class="stat-num">350+</span>
-        <span class="stat-lbl" data-i18n="stats.projects">Proyek Selesai</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-cell">
-        <span class="stat-num">8+</span>
-        <span class="stat-lbl" data-i18n="stats.years">Tahun Pengalaman</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-cell">
-        <span class="stat-num">99%</span>
-        <span class="stat-lbl" data-i18n="stats.satisfaction">Kepuasan Klien</span>
-      </div>
-    </div>
-  </div>
 
   <!-- ══════════════════════════════════════════════════════
        SERVICES
@@ -184,10 +161,6 @@
           <li><span class="dot-bullet"></span><span data-i18n="services.web.f3">SaaS &amp; Web Application</span></li>
           <li><span class="dot-bullet"></span><span data-i18n="services.web.f4">API Development &amp; Integration</span></li>
         </ul>
-        <div class="svc-cta">
-          <span data-i18n="services.learnMore">Pelajari Lebih Lanjut</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
       </article>
 
       <article class="svc-card">
@@ -200,10 +173,6 @@
           <li><span class="dot-bullet"></span><span data-i18n="services.mobile.f3">UI/UX Design &amp; Prototyping</span></li>
           <li><span class="dot-bullet"></span><span data-i18n="services.mobile.f4">App Store &amp; Play Store Publishing</span></li>
         </ul>
-        <div class="svc-cta">
-          <span data-i18n="services.learnMore">Pelajari Lebih Lanjut</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
       </article>
 
       <article class="svc-card">
@@ -216,10 +185,6 @@
           <li><span class="dot-bullet"></span><span data-i18n="services.consult.f3">System Architecture Design</span></li>
           <li><span class="dot-bullet"></span><span data-i18n="services.consult.f4">Security Audit &amp; Compliance</span></li>
         </ul>
-        <div class="svc-cta">
-          <span data-i18n="services.learnMore">Pelajari Lebih Lanjut</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
       </article>
 
     </div>
@@ -298,12 +263,6 @@
     </div>
 
     <div class="tech-wrap">
-      <div class="tech-tabs" role="tablist">
-        <button class="ttab active" onclick="switchTab(this,'frontend')" data-i18n="tech.tab.frontend">Frontend</button>
-        <button class="ttab"        onclick="switchTab(this,'backend')"  data-i18n="tech.tab.backend">Backend</button>
-        <button class="ttab"        onclick="switchTab(this,'mobile')"   data-i18n="tech.tab.mobile">Mobile</button>
-        <button class="ttab"        onclick="switchTab(this,'cloud')"    data-i18n="tech.tab.cloud">Cloud &amp; DevOps</button>
-      </div>
       <div class="tech-grid" id="techGrid"></div>
     </div>
   </section>
@@ -318,143 +277,194 @@
       <p class="sec-sub" data-i18n="portfolio.subtitle">Setiap proyek adalah bukti komitmen kami terhadap kualitas dan inovasi tanpa kompromi.</p>
     </div>
 
-    <!-- Filter buttons -->
+    <!-- Filter -->
     <div class="port-filters">
-      <button class="port-filter active" onclick="filterPortfolio(this,'all')"  data-i18n="portfolio.filter.all">Semua</button>
-      <button class="port-filter"        onclick="filterPortfolio(this,'web')"  data-i18n="portfolio.filter.web">Web</button>
+      <button class="port-filter active" onclick="filterPortfolio(this,'all')"    data-i18n="portfolio.filter.all">Semua</button>
+      <button class="port-filter"        onclick="filterPortfolio(this,'web')"    data-i18n="portfolio.filter.web">Web</button>
       <button class="port-filter"        onclick="filterPortfolio(this,'mobile')" data-i18n="portfolio.filter.mobile">Mobile</button>
     </div>
 
     <div class="portfolio-grid" id="portfolioGrid">
 
-      <!-- WEB 1 -->
-      <div class="port-card" data-type="web">
-        <div class="port-thumb port-thumb--1">
-          🛒
-          <span class="port-type-badge port-type-badge--web">Web</span>
-        </div>
-        <div class="port-body">
-          <span class="port-badge">E-commerce</span>
-          <h3>TokoBesarku Marketplace</h3>
-          <p data-i18n="portfolio.p1.desc">Platform marketplace multi-vendor dengan fitur pembayaran terintegrasi, real-time chat, dan analytics dashboard.</p>
-          <div class="port-tech">
-            <span class="port-tech-tag">React</span>
-            <span class="port-tech-tag">Node.js</span>
-            <span class="port-tech-tag">MongoDB</span>
-          </div>
-          <div class="port-meta">
-            <span>⚙️ React + Node.js</span>
-            <span data-i18n="portfolio.p1.users">👥 50K+ pengguna</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- MOBILE 1 -->
+      <!-- 1 · Ismut Mobile -->
       <div class="port-card" data-type="mobile">
-        <div class="port-thumb port-thumb--2">
-          🏥
-          <span class="port-type-badge port-type-badge--mobile">Mobile</span>
+        <div class="port-thumb port-thumb--img">
+          <img src="images/p1-ismut-mobile.webp" alt="Ismut Fitomedika Android App" loading="lazy"/>
+          <span class="port-type-badge port-type-badge--mobile">Android</span>
         </div>
         <div class="port-body">
           <span class="port-badge">Healthcare</span>
-          <h3>MediConnect App</h3>
-          <p data-i18n="portfolio.p2.desc">Aplikasi mobile telemedicine untuk konsultasi dokter online, manajemen rekam medis, dan pengingat obat.</p>
-          <div class="port-tech">
-            <span class="port-tech-tag">Flutter</span>
-            <span class="port-tech-tag">Firebase</span>
-            <span class="port-tech-tag">Dart</span>
-          </div>
-          <div class="port-meta">
-            <span>📱 Flutter</span>
-            <span>⭐ 4.8 App Store</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- WEB 2 -->
-      <div class="port-card" data-type="web">
-        <div class="port-thumb port-thumb--3">
-          📊
-          <span class="port-type-badge port-type-badge--web">Web</span>
-        </div>
-        <div class="port-body">
-          <span class="port-badge">FinTech</span>
-          <h3>FinSight Dashboard</h3>
-          <p data-i18n="portfolio.p3.desc">Platform analitik keuangan real-time dengan visualisasi data interaktif dan laporan otomatis untuk perusahaan.</p>
-          <div class="port-tech">
-            <span class="port-tech-tag">Vue.js</span>
-            <span class="port-tech-tag">Python</span>
-            <span class="port-tech-tag">PostgreSQL</span>
-          </div>
-          <div class="port-meta">
-            <span>⚙️ Vue + Python</span>
-            <span data-i18n="portfolio.p3.clients">🏢 30+ perusahaan</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- MOBILE 2 -->
-      <div class="port-card" data-type="mobile">
-        <div class="port-thumb port-thumb--4">
-          🎓
-          <span class="port-type-badge port-type-badge--mobile">Mobile</span>
-        </div>
-        <div class="port-body">
-          <span class="port-badge">EdTech</span>
-          <h3>EduGrow Learning</h3>
-          <p data-i18n="portfolio.p4.desc">Aplikasi belajar online dengan fitur kelas live, kuis interaktif, sertifikasi, dan progress tracking lengkap.</p>
-          <div class="port-tech">
-            <span class="port-tech-tag">React Native</span>
-            <span class="port-tech-tag">GraphQL</span>
-            <span class="port-tech-tag">AWS</span>
-          </div>
-          <div class="port-meta">
-            <span>📱 React Native</span>
-            <span data-i18n="portfolio.p4.users">👥 100K+ pengguna</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- WEB 3 -->
-      <div class="port-card" data-type="web">
-        <div class="port-thumb port-thumb--5">
-          🏨
-          <span class="port-type-badge port-type-badge--web">Web</span>
-        </div>
-        <div class="port-body">
-          <span class="port-badge">Travel</span>
-          <h3>StayEasy Booking</h3>
-          <p data-i18n="portfolio.p5.desc">Platform pemesanan hotel dan villa dengan sistem rekomendasi AI, ulasan pengguna, dan integrasi payment gateway.</p>
-          <div class="port-tech">
-            <span class="port-tech-tag">Next.js</span>
-            <span class="port-tech-tag">TypeScript</span>
-            <span class="port-tech-tag">Redis</span>
-          </div>
-          <div class="port-meta">
-            <span>⚙️ Next.js</span>
-            <span data-i18n="portfolio.p5.bookings">📅 20K+ booking/bulan</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- MOBILE 3 -->
-      <div class="port-card" data-type="mobile">
-        <div class="port-thumb port-thumb--6">
-          💰
-          <span class="port-type-badge port-type-badge--mobile">Mobile</span>
-        </div>
-        <div class="port-body">
-          <span class="port-badge">FinTech</span>
-          <h3>WalletKu</h3>
-          <p data-i18n="portfolio.p6.desc">Aplikasi dompet digital dengan fitur transfer, split bill, investasi reksa dana, dan laporan keuangan personal otomatis.</p>
+          <h3>Ismut Fitomedika App</h3>
+          <p>Sistem absensi dengan dukungan face recognition dan tanda tangan digital.</p>
           <div class="port-tech">
             <span class="port-tech-tag">Kotlin</span>
-            <span class="port-tech-tag">Swift</span>
-            <span class="port-tech-tag">Kubernetes</span>
+            <span class="port-tech-tag">MVP</span>
           </div>
-          <div class="port-meta">
-            <span>📱 iOS &amp; Android</span>
-            <span data-i18n="portfolio.p6.users">💳 80K+ pengguna</span>
+        </div>
+      </div>
+
+      <!-- 2 · Ismut Web -->
+      <div class="port-card" data-type="web">
+        <div class="port-thumb port-thumb--img">
+          <img src="images/p2-ismut-web.webp" alt="Ismut Fitomedika Dashboard" loading="lazy"/>
+          <span class="port-type-badge port-type-badge--web">Web</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">Healthcare</span>
+          <h3>Ismut Fitomedika Dashboard</h3>
+          <p>Dashboard management terintegrasi untuk Ismut Mobile Apps.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">Spring</span>
+            <span class="port-tech-tag">Java</span>
+            <span class="port-tech-tag">MySQL</span>
+            <span class="port-tech-tag">OAuth2</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 · MPS Group -->
+      <div class="port-card" data-type="web">
+        <div class="port-thumb port-thumb--img">
+          <img src="images/p3-mps.webp" alt="Megahputra Sejahtera Website" loading="lazy"/>
+          <span class="port-type-badge port-type-badge--web">Web</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">Automotive</span>
+          <h3>Megahputra Sejahtera</h3>
+          <p>Management konten Megahputra mencakup Showroom, Hotel, dan Industri.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">Grails</span>
+            <span class="port-tech-tag">Groovy</span>
+            <span class="port-tech-tag">MySQL</span>
+            <span class="port-tech-tag">Spring</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 · Toko Leonardo -->
+      <div class="port-card" data-type="web">
+        <div class="port-thumb port-thumb--img">
+          <img src="images/p4-tokoleo.webp" alt="CV Leonardo" loading="lazy"/>
+          <span class="port-type-badge port-type-badge--web">Web</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">Retail</span>
+          <h3>CV Leonardo</h3>
+          <p>Sistem management transaksi pembelian, penjualan, pajak, dan pengeluaran bulanan.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">PHP</span>
+            <span class="port-tech-tag">MySQL</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 · Fipoproperty -->
+      <div class="port-card" data-type="web">
+        <div class="port-thumb port-thumb--img">
+          <img src="images/p5-fipo.webp" alt="Fipoproperty" loading="lazy"/>
+          <span class="port-type-badge port-type-badge--web">Web</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">Property</span>
+          <h3>Fipoproperty</h3>
+          <p>Website katalog properti publik untuk mempermudah proses penjualan.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">Grails</span>
+            <span class="port-tech-tag">Groovy</span>
+            <span class="port-tech-tag">Spring Boot</span>
+            <span class="port-tech-tag">MySQL</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 · Vaksin Dr Bob -->
+      <div class="port-card" data-type="mobile">
+        <div class="port-thumb port-thumb--img">
+          <img src="images/p6-drbob.webp" alt="Vaksin Dr Bob" loading="lazy"/>
+          <span class="port-type-badge port-type-badge--mobile">Android</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">Healthcare</span>
+          <h3>Vaksin Dr. Bob</h3>
+          <p>Aplikasi vaksinasi anak dengan fitur antrian digital dan pembayaran online.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">Java</span>
+            <span class="port-tech-tag">Google Pay</span>
+            <span class="port-tech-tag">Maps API</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 · Smart Faculty Mobile -->
+      <div class="port-card" data-type="mobile">
+        <div class="port-thumb port-thumb--img">
+          <img src="images/p7-uh-mobile.webp" alt="Smart Faculty UH Mobile" loading="lazy"/>
+          <span class="port-type-badge port-type-badge--mobile">Android</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">Education</span>
+          <h3>Smart Faculty UH</h3>
+          <p>Aplikasi penunjang KBM — absensi, ujian, skripsi, tesis & informasi FEB Unhas.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">Kotlin</span>
+            <span class="port-tech-tag">MVP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 · Smart Faculty Web -->
+      <div class="port-card" data-type="web">
+        <div class="port-thumb port-thumb--img">
+          <img src="images/p8-uh-web.webp" alt="Smart Faculty UH Web" loading="lazy"/>
+          <span class="port-type-badge port-type-badge--web">Web</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">Education</span>
+          <h3>Smart Faculty UH Dashboard</h3>
+          <p>Web dashboard terintegrasi dengan mobile app untuk manajemen KBM FEB Unhas.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">Spring Boot</span>
+            <span class="port-tech-tag">Thymeleaf</span>
+            <span class="port-tech-tag">OAuth2</span>
+            <span class="port-tech-tag">Nginx</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 · Kandangin -->
+      <div class="port-card" data-type="web">
+        <div class="port-thumb port-thumb--img">
+          <img src="images/p9-kandangin.webp" alt="Kandangin.com" loading="lazy"/>
+          <span class="port-type-badge port-type-badge--web">Web</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">Marketplace</span>
+          <h3>Kandangin.com</h3>
+          <p>Katalog sapi online dengan foto, video, berat, dan harga untuk kemudahan pembeli.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">PHP</span>
+            <span class="port-tech-tag">MySQL</span>
+            <span class="port-tech-tag">jQuery</span>
+            <span class="port-tech-tag">Canvas API</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 · Koperasi MBG -->
+      <div class="port-card" data-type="web">
+        <div class="port-thumb port-thumb--img">
+          <img src="images/p10-koperasi.webp" alt="Koperasi MBG" loading="lazy"/>
+          <span class="port-type-badge port-type-badge--web">Web</span>
+        </div>
+        <div class="port-body">
+          <span class="port-badge">Accounting</span>
+          <h3>Koperasi MBG</h3>
+          <p>Dashboard manajemen keuangan, barang, dan jasa koperasi pengolahan makanan.</p>
+          <div class="port-tech">
+            <span class="port-tech-tag">PHP</span>
+            <span class="port-tech-tag">MySQL</span>
+            <span class="port-tech-tag">jQuery</span>
+            <span class="port-tech-tag">Vanilla JS</span>
           </div>
         </div>
       </div>
@@ -465,51 +475,6 @@
   <!-- ══════════════════════════════════════════════════════
        TESTIMONIALS
   ══════════════════════════════════════════════════════ -->
-  <section id="testimonials">
-    <div class="sec-header">
-      <span class="sec-tag" data-i18n="testi.tag">Testimoni</span>
-      <h2 class="sec-title" data-i18n="testi.title">Apa Kata Klien Kami</h2>
-      <p class="sec-sub" data-i18n="testi.subtitle">Kepercayaan klien adalah aset terbesar kami. Dengarkan cerita sukses mereka bersama KarsaLabs.</p>
-    </div>
-
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <blockquote data-i18n="testi.t1.quote">"KarsaLabs mengubah cara kami berbisnis sepenuhnya. Aplikasi yang mereka bangun sangat responsif dan melampaui ekspektasi kami. Tim mereka profesional dan selalu siap membantu."</blockquote>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:rgba(79,110,247,0.12)">👨‍💼</div>
-          <div>
-            <div class="testi-name">Budi Santoso</div>
-            <div class="testi-role" data-i18n="testi.t1.role">CEO, TokoBesarku</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <blockquote data-i18n="testi.t2.quote">"Konsultasi IT dari KarsaLabs memberikan kami roadmap yang sangat jelas. Dalam 6 bulan, efisiensi operasional kami meningkat 40%. Sangat direkomendasikan!"</blockquote>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:rgba(124,58,237,0.12)">👩‍💻</div>
-          <div>
-            <div class="testi-name">Sari Dewi</div>
-            <div class="testi-role" data-i18n="testi.t2.role">CTO, HealthFirst ID</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <blockquote data-i18n="testi.t3.quote">"Mobile app yang dibuat KarsaLabs sudah didownload lebih dari 100K kali dalam 3 bulan pertama. Kualitasnya benar-benar setara aplikasi internasional."</blockquote>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:rgba(6,182,212,0.12)">👨‍🚀</div>
-          <div>
-            <div class="testi-name">Andi Prasetyo</div>
-            <div class="testi-role" data-i18n="testi.t3.role">Founder, EduGrow</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ══════════════════════════════════════════════════════
        CONTACT
@@ -624,8 +589,12 @@
   <!-- ══════════════════════════════════════════════════════
        FOOTER
   ══════════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER — edit via footer.html lalu paste di sini
+  ══════════════════════════════════════════════════════ -->
   <footer>
     <div class="footer-inner">
+
       <div class="footer-brand">
         <div class="footer-logo">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 36" height="34" aria-label="KarsaLabs">
@@ -679,7 +648,7 @@
         <ul>
           <li><a href="#">📍 Jakarta, Indonesia</a></li>
           <li><a href="tel:+628123456789">📞 +62 812-3456-7890</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#1c75727a73717d6f77737875727b5c7b717d7570327f7371">✉️ <span class="__cf_email__" data-cfemail="620b0c040d0f0311090d060b0c0522050f030b0e4c010d0f">[email&#160;protected]</span></a></li>
+          <li><a href="/cdn-cgi/l/email-protection#3851565e5755594b53575c51565f785f55595154165b5755">✉️ <span class="__cf_email__" data-cfemail="c5acaba3aaa8a4b6aeaaa1acaba285a2a8a4aca9eba6aaa8">[email&#160;protected]</span></a></li>
           <li><a href="#">💬 WhatsApp</a></li>
         </ul>
       </div>
@@ -687,11 +656,4 @@
     </div><!-- /.footer-inner -->
 
     <div class="footer-bottom">
-      <p data-i18n="footer.copy">© 2025 KarsaLabs IT Solutions. All rights reserved.</p>
-      <p data-i18n="footer.made">Dibuat dengan penuh semangat di Indonesia</p>
-    </div>
-
-  </footer>
-
-</body>
-</html>
+      <p data-i18n="footer.copy">© 2025 KarsaLabs IT Solutions. A
