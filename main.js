@@ -191,7 +191,7 @@ const translations = {
     'testi.t3.role': 'Founder, EduGrow',
 
     'contact.tag': 'Contact Us',
-    'contact.heading': 'Ready to Start Your', 'contact.headingAccent': 'Dream Project?',
+    'contact.heading': 'Ready to Start Your Project', 'contact.headingAccent': 'Dream Project?',
     'contact.subtitle': 'Consult your technology needs with us for free. Our expert team is ready to deliver the best solution.',
     'contact.info.addressLabel': 'Address', 'contact.info.phoneLabel': 'Phone',
     'contact.form.nameLabel': 'Name', 'contact.form.companyLabel': 'Company',
@@ -330,7 +330,6 @@ const techStack = [
   { e: '▶️', n: 'YouTube API'  },
   { e: '🗺️', n: 'Maps API'     },
   { e: '🔥', n: 'Firebase'     },
-  { e: '🅱️', n: 'Bootstrap'    },
 ];
 
 function renderTech() {
